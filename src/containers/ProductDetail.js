@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { SelectedProduct } from '../redux/actions/ProductActions'
+import { SelectedProduct ,RemoveSelectedProduct } from '../redux/actions/ProductActions'
 const ProductDetail = () => {
     const {productid} = useParams()
     const dispatch = useDispatch()
@@ -20,7 +20,11 @@ const ProductDetail = () => {
         dispatch(SelectedProduct(response.data))
     }
     useEffect(()=>{
+       
         fetchproduct();
+        return ()=>{
+            dispatch(RemoveSelectedProduct())
+        }
     },[])
   return (
     <>    <div>ProductDetail</div>

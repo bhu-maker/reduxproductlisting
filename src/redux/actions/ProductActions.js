@@ -12,3 +12,10 @@ return{
     payload:product,
 };
 };
+
+export const RemoveSelectedProduct=()=>{
+    return{
+        type:ActionTypes.REMOVE_SELECTED_PRODUCT,
+        
+    };
+    };
